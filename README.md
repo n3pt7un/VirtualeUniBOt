@@ -41,7 +41,6 @@ It also moves the downloaded files into a folder named after the course title.
 The files will be saved in a downloads directory, and further organized into a sub-folder named after the course.
 ## Example
 `
-
 python scraper.py`
 You will be prompted to:
 
@@ -49,10 +48,10 @@ You will be prompted to:
 
 - Enter the URL of the course page: This is the page from which files will be scraped.
 
-### Customization
+## Customization
 - File Types: You can modify the list of downloadable file types by editing the downloadable_files tuple in the script.
 - Waiting Time: Adjust the waiting times (time.sleep()) to optimize for your network speed.
-### Error Handling
+## Error Handling
 The script includes error handling for:
 
 - Missing or unreachable elements
