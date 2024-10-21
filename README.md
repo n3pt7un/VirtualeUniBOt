@@ -4,24 +4,25 @@ This Python script uses Selenium to automate the login onto the virtuale website
 !!! _This script is made by a student and is in no way affiliated to UniBo. It requires valid student credential for each run._!!!
 
 ## Features
--Manual login process: requires manual login on each run. Support for session recovery and automated login to come soon. 
--File Downloads: Automatically downloads common file types such as .pdf, .docx, .xlsx, .txt, .py, etc.
--Folder Downloads: Handles the detection and downloading of folders.
+- Manual login process: requires manual login on each run. Support for session recovery and automated login to come soon. 
+- File Downloads: Automatically downloads common file types such as .pdf, .docx, .xlsx, .txt, .py, etc.
+- Folder Downloads: Handles the detection and downloading of folders.
 
--Organized Structure: Creates a new folder named after the course and moves all downloaded files into that folder.
+- Organized Structure: Creates a new folder named after the course and moves all downloaded files into that folder.
 
--Error Handling: Robust error handling for failed downloads or navigation issues.
+- Error Handling: Robust error handling for failed downloads or navigation issues.
 
 ## Prerequisites
--Python 3.6+
--Selenium WebDriver: Ensure that you have the Chrome WebDriver installed on your machine. You can download it here.
+- Python 3.6+
+- Selenium WebDriver: Ensure that you have the Chrome WebDriver installed on your machine. You can download it here.
 
 ## Installation
 Clone this repository or download the script.
 
 Install the required Python packages:
-`bash
+`
 pip install -r requirements.txt`
+
 Ensure you have Chrome installed and WebDriver configured on your system.
 
 ## Usage
@@ -40,13 +41,13 @@ It also moves the downloaded files into a folder named after the course title.
 The files will be saved in a downloads directory, and further organized into a sub-folder named after the course.
 ## Example
 `
-bash
+
 python scraper.py`
 You will be prompted to:
 
--Login manually: The script opens the browser and pauses for you to complete login.
+- Login manually: The script opens the browser and pauses for you to complete login.
 
--Enter the URL of the course page: This is the page from which files will be scraped.
+- Enter the URL of the course page: This is the page from which files will be scraped.
 
 ### Customization
 - File Types: You can modify the list of downloadable file types by editing the downloadable_files tuple in the script.
@@ -54,13 +55,10 @@ You will be prompted to:
 ### Error Handling
 The script includes error handling for:
 
--Missing or unreachable elements
+- Missing or unreachable elements
 
--Failed downloads
+- Failed downloads
 
--Timeout issues during navigation
+- Timeout issues during navigation
 ## Contributing
 Feel free to fork this repository and make your improvements. Pull requests are welcome!
-
-## License
-This project is open-source and available under the MIT License.
