@@ -1,16 +1,33 @@
 import os
 import time
 import requests
-import pickle
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from selenium.common.exceptions import WebDriverException, NoSuchElementException, TimeoutException, \
-    ElementClickInterceptedException, StaleElementReferenceException
+from selenium.common.exceptions import WebDriverException, NoSuchElementException, TimeoutException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import shutil
+
+
+# File to store the username and password
+secrets_file = 'secrets.txt'
+
+# Check if secrets.txt exists
+if not os.path.exists(secrets_file):
+    # If not, ask the user for input
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+
+    # Save the username and password to secrets.txt
+    with open(secrets_file, 'w') as f:
+        f.write(f"{username}\n{password}")
+else:
+    # If the file exists, read username and password from it
+    with open(secrets_file, 'r') as f:
+        username, password = f.read().splitlines()
+
 
 ### Browser and Download Setup
 # Set up Chrome options for downloading PDFs
@@ -76,9 +93,30 @@ def download_file(url, file_name, cookies):
 
 # Login Page Popup
 driver.get("https://virtuale.unibo.it/login/index.php")
-input("After making sure you are logged in press Enter to continue ...")
-# ClassPage to Scrape URL
+# input("After making sure you are logged in press Enter to continue ...")
 
+
+# Automated Login Process - WiP
+login_btn = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, ".idp.btnUnibo")))
+
+login_btn.click()
+# Wait until the username input field is present
+username_field = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.ID, 'userNameInput'))
+)
+# Fill in the username and password
+username_field.send_keys(username)
+password_field = driver.find_element(By.ID, 'passwordInput')
+password_field.send_keys(password)
+time.sleep(1)
+# Wait for the submit button (by id) to be clickable and click it
+submit_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.ID, 'submitButton'))
+)
+submit_button.click()
+
+# ClassPage to Scrape URL
 target = input("Please paste the URL of the virtuale Class you want to scrape and press Enter:\n")
 # Load desired virtuale page
 driver.get(target)
