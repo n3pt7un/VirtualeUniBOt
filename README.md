@@ -14,16 +14,16 @@ This Python script uses Selenium to automate the login onto the virtuale website
 
 ## Prerequisites
 - Python 3.6+
-- Selenium WebDriver: Ensure that you have the Chrome WebDriver installed on your machine. You can download it here.
+- Selenium WebDriver: Ensure that you have the Chrome WebDriver installed on your machine. 
 
 ## Installation
 Clone this repository or download the script.
 
-Install the required Python packages:
+Install the required Python packages by running:
 `
 pip install -r requirements.txt`
 
-Ensure you have Chrome installed and WebDriver configured on your system.
+!Ensure you have Chrome installed and WebDriver configured on your system.
 
 ## Usage
 - Login Process:
@@ -39,9 +39,9 @@ It also moves the downloaded files into a folder named after the course title.
 
 - Saving Files:
 The files will be saved in a downloads directory, and further organized into a sub-folder named after the course.
+
 ## Example
-`
-python scraper.py`
+To run the script type `python main.py` in terminal while in the project directory.
 You will be prompted to:
 
 - Login manually: The script opens the browser and pauses for you to complete login.
@@ -59,5 +59,16 @@ The script includes error handling for:
 - Failed downloads
 
 - Timeout issues during navigation
+  
 ## Contributing
 Feel free to fork this repository and make your improvements. Pull requests are welcome!
+
+## Roadmap
+Planned new features(short term): 
+- Automated login with local credential storage
+- Possibility to scrape multiple classes at once
+- Broader ability to scrape class pages(i.e. some files may still not be downloaded as of the current version, this should be improved soon)
+
+Wish-list(someday?): 
+- Web interface for the whole scipt for easier usage, possibly implemented using a local flask server. 
+- Automatic sorting of class files by theme with support for openAI/anthropic API access to create summaries, study guides and quizzes based on the scraped material.
