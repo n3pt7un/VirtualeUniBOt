@@ -65,7 +65,6 @@ Feel free to fork this repository and make your improvements. Pull requests are 
 
 ## Roadmap
 Planned new features(short term): 
-- Automated login with local credential storage
 - Possibility to scrape multiple classes at once
 - Broader ability to scrape class pages(i.e. some files may still not be downloaded as of the current version, this should be improved soon)
 
